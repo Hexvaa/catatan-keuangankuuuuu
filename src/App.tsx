@@ -99,6 +99,8 @@ function useThemePalette(mode: ThemeMode) {
   return isDark ? DARK : LIGHT
 }
 
+interface Toast { id: string; type: TransType; amount: number }
+
 // keep C as alias — replaced dynamically in App
 let C = DARK
 
@@ -685,7 +687,6 @@ export default function App() {
   )
 
   // Toasts
-  interface Toast { id: string; type: TransType; amount: number }
   const [toasts, setToasts] = useState<Toast[]>([])
   const addToast = (type: TransType, amount: number) => {
     const id = Date.now().toString()
